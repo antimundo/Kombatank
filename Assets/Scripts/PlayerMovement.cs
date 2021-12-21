@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,10 +18,13 @@ public class PlayerMovement : MonoBehaviour
 
     // Components
     Rigidbody2D rb;
+    PlayerInputActions controls;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        controls = new PlayerInputActions();
+        controls.Player.Enable();
     }
 
     private void Update()
@@ -55,8 +59,8 @@ public class PlayerMovement : MonoBehaviour
 
     void SetInputVector()
     {
-        steeringInput = Input.GetAxis("Horizontal");
-        engineInput = Input.GetAxis("Vertical");
+        steeringInput = controls.Player.Movement.ReadValue<Vector2>().x;
+        engineInput = controls.Player.engine.ReadValue<float>() - controls.Player.brake.ReadValue<float>();
     }
 
 

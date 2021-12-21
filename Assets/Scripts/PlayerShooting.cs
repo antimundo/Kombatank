@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -15,12 +16,20 @@ public class PlayerShooting : MonoBehaviour
     bool canShoot;
     float nextShot;
     Coroutine myCoroutine;
+    PlayerInputActions controls;
+
+    private void Awake()
+    {
+        controls = new PlayerInputActions();
+        controls.Player.Enable();
+        //controls.Player.Shoot.performed += Shoot;
+    }
 
     void Update()
     {
         canShoot = Time.time > nextShot;
 
-        if (Input.GetKey(KeyCode.Space) && canShoot == true)
+        if (controls.Player.Shoot.ReadValue<float>() == 1 && canShoot == true)
         {
             // bullet instantiate
             GameObject thisBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
@@ -43,4 +52,5 @@ public class PlayerShooting : MonoBehaviour
         if (nowBullet == null) yield break;
         Destroy(nowBullet);
     }
+
 }
