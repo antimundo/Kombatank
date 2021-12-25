@@ -14,24 +14,22 @@ public class PlayerMovement : MonoBehaviour
     // Local variables
     float steeringInput;
     float engineInput;
+    float brakeInput;
     float rotationAngle;
 
     // Components
     Rigidbody2D rb;
-    PlayerInputActions controls;
+
+    // Input Events
+    public void OnSteer(InputAction.CallbackContext ctx) => steeringInput = ctx.ReadValue<Vector2>().x;
+    public void OnEngine(InputAction.CallbackContext ctx) => engineInput = ctx.ReadValue<float>();
+    public void OnBrake(InputAction.CallbackContext ctx) => brakeInput = ctx.ReadValue<float>();
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        controls = new PlayerInputActions();
-        controls.Player.Enable();
     }
 
-    private void Update()
-    {
-        SetInputVector();
-
-    }
     void FixedUpdate()
     {
         ApplyEngineForce();
@@ -51,18 +49,11 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyEngineForce()
     {
         // Create a force for the engine
-        Vector2 engineForceVector = transform.up * engineInput * engineFactor;
+        Vector2 engineForceVector = transform.up * (engineInput - brakeInput) * engineFactor;
 
         // Apply force and pushes the car forward
         rb.AddForce(engineForceVector, ForceMode2D.Force);
     }
-
-    void SetInputVector()
-    {
-        steeringInput = controls.Player.Movement.ReadValue<Vector2>().x;
-        engineInput = controls.Player.engine.ReadValue<float>() - controls.Player.brake.ReadValue<float>();
-    }
-
 
     void KillOrthogonalVelocity()
     {

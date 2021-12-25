@@ -16,20 +16,16 @@ public class PlayerShooting : MonoBehaviour
     bool canShoot;
     float nextShot;
     Coroutine myCoroutine;
-    PlayerInputActions controls;
+    float isShooting;
 
-    private void Awake()
-    {
-        controls = new PlayerInputActions();
-        controls.Player.Enable();
-        //controls.Player.Shoot.performed += Shoot;
-    }
+    // Input Events
+    public void OnShoot(InputAction.CallbackContext ctx) => isShooting = ctx.ReadValue<float>();
 
     void Update()
     {
         canShoot = Time.time > nextShot;
 
-        if (controls.Player.Shoot.ReadValue<float>() == 1 && canShoot == true)
+        if (isShooting == 1 && canShoot == true)
         {
             // bullet instantiate
             GameObject thisBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
