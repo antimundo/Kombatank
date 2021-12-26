@@ -31,6 +31,9 @@ public class PlayerShooting : MonoBehaviour
             GameObject thisBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
             StartCoroutine(DestroyBullet(thisBullet, lifespan));
 
+            // Asign playerId to the bullet
+            thisBullet.GetComponent<Bullet>().id = GetComponent<PlayerId>().id;
+
             // impulse
             Rigidbody2D rb = thisBullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * force, ForceMode2D.Impulse);
