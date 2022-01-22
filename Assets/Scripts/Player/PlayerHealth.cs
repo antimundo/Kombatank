@@ -28,9 +28,8 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)
             {
                 OnDeath?.Invoke(this, EventArgs.Empty);
-
-                Destroy(gameObject);
             }
         }
     }
+
 }

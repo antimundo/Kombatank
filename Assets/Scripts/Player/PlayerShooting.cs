@@ -16,7 +16,7 @@ public class PlayerShooting : MonoBehaviour
     bool canShoot;
     float nextShot;
     Coroutine myCoroutine;
-    float isShooting;
+    public float isShooting { get; private set; }
 
     // Input Events
     public void OnShoot(InputAction.CallbackContext ctx) => isShooting = ctx.ReadValue<float>();
