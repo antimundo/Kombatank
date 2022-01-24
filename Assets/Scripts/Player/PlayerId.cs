@@ -5,33 +5,16 @@ using UnityEngine;
 
 public class PlayerId : MonoBehaviour
 {
-    [SerializeField] Color32[] color;
-    static int idCount = 0;
-    static bool[] idPicked = new bool[4];
-    public int id { get; private set; }
+    [System.NonSerialized] public bool isReady = false;
+    [System.NonSerialized] public int id;
+    [System.NonSerialized] public int currentColor;
+    [SerializeField] PlayerSkins skins;
 
-    void Start()
+    public void setColor(int newColor)
     {
-        AsignId();
-
-        transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer>().color = color[id];
-    }
-
-    void AsignId()
-    {
-        do
-        {
-            id = idCount;
-
-            idCount++;
-            if (idCount >= color.Length)
-            {
-                idCount = 0;
-            }
-        } while (idPicked[id]);
-
-        idPicked[idCount] = true;
-
+        currentColor = newColor;
+        if (currentColor >= skins.colors.Length) currentColor = 0;
+        transform.GetChild(0).transform.GetChild(0).GetComponent<SpriteRenderer>().color = skins.colors[currentColor];
     }
 
 }

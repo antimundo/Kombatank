@@ -29,10 +29,7 @@ public class PlayerShooting : MonoBehaviour
         {
             // bullet instantiate
             GameObject thisBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
-            StartCoroutine(DestroyBullet(thisBullet, lifespan));
-
-            // Asign playerId to the bullet
-            thisBullet.GetComponent<Bullet>().id = GetComponent<PlayerId>().id;
+            thisBullet.GetComponent<Bullet>().DestroyBullet(GetComponent<PlayerId>().id, lifespan);
 
             // impulse
             Rigidbody2D rb = thisBullet.GetComponent<Rigidbody2D>();
@@ -44,12 +41,6 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    IEnumerator DestroyBullet(GameObject nowBullet, float lifespan)
-    {
-        yield return new WaitForSeconds(lifespan);
-
-        if (nowBullet == null) yield break;
-        Destroy(nowBullet);
-    }
+    
 
 }

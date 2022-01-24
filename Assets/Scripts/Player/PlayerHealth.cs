@@ -18,10 +18,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.collider.tag == "Bullet") {
 
-            collision.gameObject.GetComponent<Bullet>().DestroyThis();
 
             if (collision.gameObject.GetComponent<Bullet>().id != GetComponent<PlayerId>().id)
             {
+                Destroy(collision.gameObject);
+
                 health--;
             }
 

@@ -125,9 +125,9 @@ GameObject:
   - component: {fileID: 602627258296120513}
   - component: {fileID: -2045916948390407013}
   - component: {fileID: -2487115645905651149}
+  - component: {fileID: -3456187950539464675}
   - component: {fileID: 602627258296120512}
   - component: {fileID: 602627258296120518}
-  - component: {fileID: -3456187950539464675}
   - component: {fileID: 1916134334092463719}
   - component: {fileID: 793092290340967786}
   m_Layer: 0
@@ -294,6 +294,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-3456187950539464675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602627258296120514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f73836a8cb378a4a9af9c3a5436540d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins: {fileID: 11400000, guid: dd2415448c4afc244a89e6e717ba280c, type: 2}
 --- !u!114 &602627258296120512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,27 +339,6 @@ MonoBehaviour:
   cooldown: 0.5
   force: 5
   lifespan: 1
---- !u!114 &-3456187950539464675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602627258296120514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f73836a8cb378a4a9af9c3a5436540d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color:
-  - serializedVersion: 2
-    rgba: 4286379775
-  - serializedVersion: 2
-    rgba: 4287299497
-  - serializedVersion: 2
-    rgba: 4294949103
-  - serializedVersion: 2
-    rgba: 4287859455
 --- !u!114 &1916134334092463719
 MonoBehaviour:
   m_ObjectHideFlags: 0

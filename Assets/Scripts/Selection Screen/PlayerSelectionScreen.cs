@@ -6,11 +6,9 @@ using TMPro;
 
 public class PlayerSelectionScreen : MonoBehaviour
 {
-    //https://www.code-helper.com/answers/get-all-devices-connected-using-player-input-manager-unity
-
     [SerializeField] PlayerInputManager playerInputManager;
     [SerializeField] TextMeshProUGUI text;
-    GameObject[] players = new GameObject[4];
+    public GameObject[] players { get; private set; } = new GameObject[4];
 
     void Start()
     {
@@ -29,16 +27,7 @@ public class PlayerSelectionScreen : MonoBehaviour
             }
         }
 
-        // Display text
-        string newText = "";
-        for (int i = 0; i < players.Length; i++)
-        {
-            if (players[i] != null)
-            {
-                newText += "\n" + players[i].name;
-            }
-        }
-        text.text = newText;
+        DisplayInfo();
     }
 
     private void PlayerInputManager_onPlayerJoined(PlayerInput obj)
@@ -49,19 +38,25 @@ public class PlayerSelectionScreen : MonoBehaviour
             if (players[i] == null)
             {
                 players[i] = obj.gameObject;
+                players[i].GetComponent<PlayerId>().id = i;
+                players[i].GetComponent<PlayerId>().setColor(i);
                 obj.gameObject.name = "Player " + i;
                 break;
             }
         }
+        DisplayInfo();
+    }
 
-        // Display text
+    public void DisplayInfo()
+    {
         string newText = "";
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i] != null)
             {
                 if (i > 0) newText += "\n";
-                newText += players[i].name;
+                newText += "<b>" + players[i].name + "</b>";
+                newText += "\nReady: " + players[i].GetComponent<PlayerId>().isReady;
             }
         }
         text.text = newText;
