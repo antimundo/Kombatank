@@ -8,9 +8,7 @@ public class ChangeSkinButton : MonoBehaviour
     {
         if (collision.collider.tag == "Bullet")
         {
-            //FindObjectOfType<PlayerSelectionScreen>().players[collision.gameObject.GetComponent<Bullet>().id].GetComponent<PlayerId>().setColor(
-            //    FindObjectOfType<PlayerSelectionScreen>().colors);
-            FindObjectOfType<PlayerId>().setColor(++FindObjectOfType<PlayerId>().currentColor);
+            FindObjectOfType<PlayerSelectionScreen>().ChangeSkin(collision.gameObject.GetComponent<Bullet>().id);
         }
     }
 }

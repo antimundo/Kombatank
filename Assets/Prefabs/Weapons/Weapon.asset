@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54cef81111dbfc45aa1d7f25eb36c8a, type: 3}
-  m_Name: Colors
+  m_Script: {fileID: 11500000, guid: 63e73af9e884b834585ef54851ab8d38, type: 3}
+  m_Name: Weapon
   m_EditorClassIdentifier: 
-  colors:
-  - serializedVersion: 2
-    rgba: 4288388095
-  - serializedVersion: 2
-    rgba: 4288413616
-  - serializedVersion: 2
-    rgba: 4294941613
-  - serializedVersion: 2
-    rgba: 4288410879
+  force: 5
+  lifespan: 1
+  cooldown: 1
+  ammo: 1
+  bullet: {fileID: 5364211621677753970, guid: 18cbfd85ac21de840a505c2f107350e8, type: 3}
