@@ -64,6 +64,6 @@ public class PlayerSelectionScreen : MonoBehaviour
 
     public void ChangeSkin(int id)
     {
-        players[id].GetComponent<PlayerId>().setColor(players[id].GetComponent<PlayerId>().currentColor + 1);
+        players[id].GetComponent<PlayerId>().setColor(players[id].GetComponent<PlayerId>().currentSkin + 1);
     }
 }

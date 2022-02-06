@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54cef81111dbfc45aa1d7f25eb36c8a, type: 3}
+  m_Name: MySkins
+  m_EditorClassIdentifier: 
+  skins:
+  - body: {fileID: 21300000, guid: 15f7c9fd7ea8d194faf8c82772fa92ea, type: 3}
+    wheel: {fileID: 21300000, guid: 24964f50c74973c4eb18aed8e11368be, type: 3}
+  - body: {fileID: 21300000, guid: 64a5a353deb3c0f44b5f93873909108e, type: 3}
+    wheel: {fileID: 21300000, guid: 3460598e9b82dfd4a8286e300945c557, type: 3}
+  - body: {fileID: 21300000, guid: f623e4cf1c025e347aa7a195bf22548a, type: 3}
+    wheel: {fileID: 21300000, guid: 9559b9c126ed1c746906822135a59ac1, type: 3}
+  - body: {fileID: 21300000, guid: 76f137b728127434c9656dfc962af8c2, type: 3}
+    wheel: {fileID: 21300000, guid: 0e8baa2ac90a23d41aa9ef961b89bb0f, type: 3}
+  - body: {fileID: 21300000, guid: dde59ded5e25ccf44abf624fea5cd958, type: 3}
+    wheel: {fileID: 21300000, guid: b4d13839c006cd84a970f4c1bf6cb66d, type: 3}

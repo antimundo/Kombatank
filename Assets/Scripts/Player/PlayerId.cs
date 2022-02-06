@@ -7,17 +7,20 @@ public class PlayerId : MonoBehaviour
 {
     [System.NonSerialized] public bool isReady = false;
     [System.NonSerialized] public int id;
-    public int currentColor { get; private set; }
+    public int currentSkin { get; private set; }
     [SerializeField] PlayerSkins skins;
+    [SerializeField] SpriteRenderer body;
+    [SerializeField] SpriteRenderer wheels;
 
-    public void setColor(int newColor)
+    public void setColor(int newSkin)
     {
-        currentColor = newColor;
-        if (currentColor >= skins.colors.Length) currentColor = 0;
-        foreach (SpriteRenderer sr in transform.GetChild(0).GetComponentsInChildren<SpriteRenderer>())
-        {
-            sr.color = skins.colors[currentColor];
-        }
+        currentSkin = newSkin;
+        if (currentSkin >= skins.skins.Length) currentSkin = 0;
+
+        body.sprite = skins.skins[currentSkin].body;
+        wheels.sprite = skins.skins[currentSkin].wheel;
+
+        wheels.GetComponent<SpriteMask>().sprite = skins.skins[currentSkin].wheel;
     }
 
 }
